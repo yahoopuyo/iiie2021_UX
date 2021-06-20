@@ -1,0 +1,96 @@
+/* CSSのリセット（消さないでください） */
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+  background-color: #000000;            /* 背景色 */
+  /* background-image: url("../images/desktop_0619.jpg"); /* 画像 */
+  background-size: cover;               /* 全画面 */
+  background-attachment: fixed;         /* 固定 */
+  background-position: center center;   /* 縦横中央 */
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ここからCSSを書いていきましょう */
+header{
+  background-color:rgba(34,49,52,0.9);
+  width:100%;
+  height:10%;
+  /* position:fixed; */
+  z-index:10;
+}
+.container{
+  width:90%;
+  margin:0 5%;
+}
+.header-left{
+  float:left;
+}
+.logo{
+  height: 120px;
+  z-index:5;
+}
+.projects-wrapper{
+  /* background-color:#f7f7f7; */
+  /* height:30vw; */
+  padding-top:5vh;
+  text-align:center;
+  /* border: 3px solid red;   */
+
+}
+.projects-row{
+  height: 25vh;
+  margin: 5vh 3vw;
+  /* border: 3px solid red; */
+  /* padding: 10vh; */
+}
+.project-top{
+  float:center;
+  display:inline-block;
+  position:relative;
+  width:20vw;
+
+  /* border: 3px solid red; */
+  /* border: 1px solid red; */
+}
+.project-mid{
+  float:center;
+  display:inline-block;
+  position:relative;
+  width:20vw;
+  /* border: 1px solid red; */
+}
+.project-btm{
+  float:center;
+  display:inline-block;
+  position:relative;
+  width:20vw;
+  /* border: 1px solid red; */
+}
+.project-top img{
+  width:90%;
+  transform: rotate3d(-1,-1,0,45deg);
+  /* object-fit: contain; */
+}
+.project-btm img{
+  width:90%;
+  transform: rotate3d(-1,-1,0,45deg);
+  /* object-fit: contain; */
+}
+.project-mid img{
+  width:90%;
+  transform: rotate3d(-1,-1,0,45deg);
+  /* object-fit: contain; */
+}
