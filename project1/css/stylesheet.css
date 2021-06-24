@@ -64,23 +64,116 @@ header{
   /* margin-bottom: 10vh; */
   /* border: 3px solid red; */
 }
+.thumbnail-wrapper{
+  height:70vh;
+  width:100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.thumbnail{
+  width: 60%;
+  transition:all 1s;
+}
+.thumbnail-StrongMosaic{
+  -ms-filter: blur(20px);
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  filter: blur(20px);
+}
+.thunbnail-WeakMosaic{
+  -ms-filter: blur(10px);
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  filter: blur(10px);
+}
 .video-project{
   width: 60%;
   height: 100%;
+  display:none;
 }
 .abstract-wrapper{
   width:100vw;
-  /* position:relative; */
-  padding-top: 85vh;
+  position:relative;
+  top:60vh;
+  transition:all 1s;
+  z-index: 100;
+  opacity: 1;
+  /* padding-top: 85vh; */
   /* border: 3px solid red; */
 
 }
 .abstract{
-  background-color:rgba(34,49,52,0.5);
+  background-color:rgba(34,49,52,0.9);
   height: 50vh;
   width:70vw;
   position:relative;
   margin:auto;
+  color: white;
+  z-index: 100;
   /* border: 3px solid red; */
-
+}
+.abstract-wrapper-move{
+  transform: translateY(40vh);
+  visibility: hidden;
+  opacity: 0;
+}
+.people{
+  z-index: 99;
+}
+.person{
+  width: 10vw;
+  height:30vh;
+  z-index: 99;
+}
+.a{
+  background-color:rgba(255,0,0,0.5);
+  left: 5%;
+  top:50vh;
+  position:fixed;
+}
+.b{
+  background-color:rgba(0,255,0,0.5);
+  left: 25%;
+  top:50vh;
+  position:fixed;
+}
+.c{
+  background-color:rgba(0,0,255,0.5);
+  left: 45%;
+  top:50vh;
+  position:fixed;
+}
+.d{
+  background-color:rgba(255,0,255,0.5);
+  left: 65%;
+  top:50vh;
+  position:fixed;
+}
+.e{
+  background-color:rgba(0,255,255,0.5);
+  left: 85%;
+  top:50vh;
+  position:fixed;
+}
+.moveL{
+  transition:all 2s;
+}
+.moveR{
+  transition:all 2s;
+}
+.moveL-move{
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(-60vw);
+}
+.moveR-move{
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(60vw);
+}
+.people-delete{
+  display: none;
 }

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>TENJIKUUKAN SAKUHIN PAGE</title>
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery読み込み-->
 </head>
 <body>
 
@@ -20,16 +21,32 @@
   </header>
 
   <div class="video-wrapper">
-    <video class="video-project" src= "../images/kespie_msd.mp4" controls autoplay muted loop></video>
+    <div class="thumbnail-wrapper">
+      <img class="thumbnail thumbnail-StrongMosaic" src="../images/thumbnail_example.PNG">
+    </div>
+    <video class="video-project" src= "../images/kespie_msd.mp4" poster="../images/thumbnail_example.PNG" controls muted loop></video>
     <!-- <iframe width="60%" height="100%" src="https://www.youtube.com/embed/0jth29BxP9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
   </div>
 
+  <div class="people">
+    <div class="person a moveL"></div>
+    <div class="person b moveL"></div>
+    <div class="person c moveL"></div>
+    <div class="person d moveR"></div>
+    <div class="person e moveR"></div>
+  </div>
+
+  
   <div class="abstract-wrapper">
     <div class="abstract">
-      
+      <h1>Title</h1>
+      <p>caption</p>
     </div>
   </div>
 
-  </div>
+  
+
+  <!--jsファイルの読み込みはbodyの一番下がいいらしい-->
+  <script src="js/abstract.js"></script>
 
 </body>
