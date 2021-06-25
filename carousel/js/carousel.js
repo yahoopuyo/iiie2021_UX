@@ -68,9 +68,12 @@ function carousel(root) {
 			if (t.classList.contains('next')) {
 				currImage++;
 			}
-			else {
+			else if (t.classList.contains('prev')){
 				currImage--;
 			}
+      else {
+        window.location.href = "../project1/index.html";
+      }
 
 			rotateCarousel(currImage);
 		}
