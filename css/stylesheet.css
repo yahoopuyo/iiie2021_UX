@@ -59,7 +59,7 @@ header{
 }
 .projects-row{
   height: 25vh;
-  margin: 1vh 3vw;
+  margin: 0 3vw;
   /* border: 3px solid red; */
   /* padding: 10vh; */
 }
