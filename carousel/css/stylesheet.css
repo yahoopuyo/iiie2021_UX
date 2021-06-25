@@ -1,0 +1,212 @@
+/* CSSのリセット（消さないでください） */
+html, body,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6, p, div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
+  background-color:rgb(239,238,230);            /* 背景色 */
+  /* background-image: url("../images/desktop_0619.jpg"); /* 画像 */
+  background-size: cover;               /* 全画面 */
+  background-attachment: fixed;         /* 固定 */
+  background-position: center center;   /* 縦横中央 */
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ここからCSSを書いていきましょう */
+header{
+  background-color:rgb(239,238,230);
+  width:100%;
+  height:20vh;
+  position:fixed;
+  z-index:10;
+  /* border: 3px solid red; */
+
+}
+.container{
+  width:90%;
+  margin:0 5vw;
+}
+.header-left{
+  float:left;
+}
+.header-right{
+  float:right;
+}
+.header-right a{
+  font-size: 30pt;
+}
+.logo{
+  height: 20vh;
+}
+.projects-wrapper{
+  /* background-color:#f7f7f7; */
+  /* height:30vw; */
+  padding-top:20vh;
+  /* text-align:center; */
+  /* z-index:5; */
+  /* margin: 0 auto; */
+  /* width: 10vw;
+  height: 10vh; */
+  position: relative;
+  /* perspective: 600px; */
+  /* border: 3px solid red; */
+}
+
+/* .carousel {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.item {
+  display: block;
+  position: absolute;
+  background: #000;
+  width: 10vw;
+  height: 10vh;
+  line-height: 200px;
+  font-size: 5em;
+  text-align: center;
+  color: #FFF;
+  opacity: 0.95;
+  border-radius: 10px;
+}
+
+.a {
+  transform: rotateY(0deg) translateZ(250px);
+  background: #ed1c24;
+}
+.b {
+  transform: rotateY(30deg) translateZ(250px);
+  background: #0072bc;
+}
+.c {
+  transform: rotateY(60deg) translateZ(250px);
+  background: #39b54a;
+}
+.d {
+  transform: rotateY(90deg) translateZ(250px);
+  background: #f26522;
+}
+.e {
+  transform: rotateY(120deg) translateZ(250px);
+  background: #630460;
+}
+.f {
+  transform: rotateY(150deg) translateZ(250px);
+  background: #8c6239;
+}
+.g {
+  transform: rotateY(180deg) translateZ(250px);
+  background: #8c6239;
+}
+.h {
+  transform: rotateY(210deg) translateZ(250px);
+  background: #8c6239;
+}
+.i {
+  transform: rotateY(240deg) translateZ(250px);
+  background: #8c6239;
+}
+.j {
+  transform: rotateY(270deg) translateZ(250px);
+  background: #8c6239;
+}
+.k {
+  transform: rotateY(300deg) translateZ(250px);
+  background: #8c6239;
+}
+.l {
+  transform: rotateY(330deg) translateZ(250px);
+  background: #8c6239;
+}
+
+.next, .prev {
+  color: #444;
+  position: absolute;
+  top: 40vh;
+  padding: 1em 2em;
+  cursor: pointer;
+  background: #CCC;
+  border-radius: 5px;
+  border-top: 1px solid #FFF;
+  box-shadow: 0 5px 0 #999;
+  transition: box-shadow 0.1s, top 0.1s;
+  border: 3px solid red;
+  z-index: 15;
+
+}
+.next:hover, .prev:hover { color: #000; }
+.next:active, .prev:active {
+  top: 41vh;
+  box-shadow: 0 1px 0 #999;
+}
+.next { right: 5em; }
+.prev { left: 5em; } */
+
+.transparent {
+  height: 40vh;
+  width: 40vw;
+  margin: 3vh 0 30vw 30vw;
+  position: absolute;
+  z-index: 100;
+  /* border: 3px solid red; */
+}
+.carousel {
+  position: absolute;
+  perspective: 500px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel > * {
+  flex: 0 0 auto;
+}
+.carousel figure {
+  margin: 0;
+  width: 50%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  display: inline;
+}
+.carousel figure img {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 0px;
+  vertical-align: middle;
+}
+.carousel figure img:not(:first-of-type) {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.carousel nav {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0 0;
+}
+.carousel nav button {
+  flex: 0 0 auto;
+  margin: 10vh 1vw;
+  cursor: pointer;
+  color: #333;
+  background: none;
+  border: 1px solid;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  z-index: 50;
+}
