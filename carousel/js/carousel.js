@@ -67,7 +67,7 @@ function carousel(root) {
 		function onClick_nav(e) {
       // alert("nav clicked")
 			e.stopPropagation();
-
+      
       if(!able2click) return;
       able2click=false;
       setTimeout(function() {

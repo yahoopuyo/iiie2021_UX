@@ -55,6 +55,7 @@ header{
   padding-top:23vh;
   text-align:center;
   z-index:5;
+  position: relative;
   /* border: 3px solid red;   */
 }
 .projects-row{
@@ -68,7 +69,6 @@ header{
   display:inline-block;
   position:relative;
   width:20vw;
-
   /* border: 3px solid red; */
   /* border: 1px solid red; */
 }
@@ -106,4 +106,12 @@ header{
   /* border: 3px solid red; */
 
   /* object-fit: contain; */
+}
+.zawa{
+  position: absolute;
+  /* top: 20vh;
+  left: 20vw; */
+  /* margin: 3vh 0 30vw 30vw; */
+  z-index: 80;
+  font-size: 25pt;
 }
