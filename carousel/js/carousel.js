@@ -22,7 +22,8 @@ function carousel(root) {
 
 		theta =  2 * Math.PI / n,
 		currImage = 0,
-    able2click = true;
+    able2click = true
+
 	;
 
 	setupCarousel(n, parseFloat(getComputedStyle(images[0]).width));
@@ -58,7 +59,7 @@ function carousel(root) {
 
     figure.addEventListener('mouseover', function(e){
       var t = e.target;
-      if (t.classList.contains('project')) if(t.classList[1] == currImage+1){
+      if (t.classList.contains('project')) if(t.classList[1] == (currImage+n)%n+1){
         t.style.cursor = "pointer";
       }
     },true);
@@ -66,6 +67,13 @@ function carousel(root) {
 		function onClick_nav(e) {
       // alert("nav clicked")
 			e.stopPropagation();
+
+      if(!able2click) return;
+      able2click=false;
+      setTimeout(function() {
+        able2click = true;
+      }, 1000);
+
 
 			var t = e.target;
       // if (t.classList.contains('transparent')){
@@ -83,21 +91,22 @@ function carousel(root) {
         rotateCarousel(currImage);
 			}
       else {
-        joinProjectPage()
+        joinProjectPage();
       }
 		}
 
     function onClick_fig(e) {
       e.stopPropagation();
       var t = e.target;
+
       if (t.classList.contains('project')){
-        if (t.classList[1] == currImage+1) joinProjectPage();
+        if (t.classList[1] == (currImage+n)%n+1) joinProjectPage();
       }
     }
 
     function joinProjectPage() {
       // joinの時の遷移先の処理
-      var project_id = (currImage % 2) + 1;
+      var project_id = ((currImage+n) % 2) + 1;
       window.location.href = `../project${project_id}/index.html`;
     }
 
