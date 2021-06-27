@@ -4,27 +4,36 @@ $(document).click(function(event){
     if(display_click === 1){
         $('.abstract-wrapper').addClass('abstract-wrapper-move');
         $('.thumbnail').removeClass('thumbnail-StrongMosaic');
-        $('.thumbnail').addClass('thunbnail-WeakMosaic');
-        /*$('.thumbnail').css({
-            'ms-filter': 'blur(10px)',
-            'webkit-filter':'blur(10px)',
-            'moz-filter': 'blur(10px)',
-            'o-filter': 'blur(10px)',
-            'filter': 'blur(10px)'
-        });*/
+        $('.thumbnail').addClass('thunbnail-MiddleMosaic');
         setTimeout(function(){
             $('.abstract-wrapper').hide();
        },1000);
     }else if(display_click === 2){
+        $('.thumbnail').removeClass('thumbnail-MiddleMosaic');
+        $('.thumbnail').addClass('thunbnail-WeakMosaic');
+        $('.moveL1').addClass('moveL-move');
+        $('.moveR1').addClass('moveR-move');
+        $('.thumbnail').css({'width':'50%'});
+        $('.moveL2').attr('src','../images/person-black.png');
+        $('.moveR2').attr('src','../images/person-black.png');
+        $('.moveL2').css({'top':'55vh'});
+        $('.moveR2').css({'top':'55vh'});
+        /*
+        setTimeout(function(){
+            //$('.moveL2').attr('src','../images/person-black.png');
+            //$('.moveR2').attr('src','../images/person-black.png');
+       },1000);
+       */
+    }else if(display_click === 3){
         $('.thumbnail').removeClass('thunbnail-WeakMosaic');
-        $('.moveL').addClass('moveL-move');
-        $('.moveR').addClass('moveR-move');
+        $('.thumbnail').addClass('thunbnail-NoMosaic');
+        $('.moveL2').addClass('moveL-move');
+        $('.moveR2').addClass('moveR-move');
+        $('.thumbnail').css({'width':'60%'});
         setTimeout(function(){
             $('.people').hide();
             $('.thumbnail-wrapper').hide();
             $('.video-project').show();
        },1000);
-    }else{
-
     }
 });

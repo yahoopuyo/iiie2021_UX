@@ -6,6 +6,7 @@ h1, h2, h3, h4, h5, h6, p, div {
   padding: 0;
 }
 
+
 body {
   font-family: 'Hiragino Kaku Gothic ProN W3', sans-serif;
   background-color: #000000;            /* 背景色 */
@@ -13,6 +14,26 @@ body {
   background-size: cover;               /* 全画面 */
   background-attachment: fixed;         /* 固定 */
   background-position: center center;   /* 縦横中央 */
+  height:100%;
+}
+body:after {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  content: "";
+  z-index: -1;
+  background: linear-gradient(
+        135deg,
+        rgb(233, 247, 254) 0%,
+        rgb(156, 201, 227) 25%,
+        rgb(92, 177, 227) 50%,
+        rgb(134, 105, 174) 75%,
+        rgb(200, 37, 143) 100%
+    );
+}
+
+html{
+  height: 100%;
 }
 
 li {
@@ -72,7 +93,7 @@ header{
   align-items: center;
 }
 .thumbnail{
-  width: 60%;
+  width: 40%;/*最終的に60%*/
   transition:all 1s;
 }
 .thumbnail-StrongMosaic{
@@ -82,12 +103,26 @@ header{
   -o-filter: blur(20px);
   filter: blur(20px);
 }
-.thunbnail-WeakMosaic{
+.thunbnail-MiddleMosaic{
   -ms-filter: blur(10px);
   -webkit-filter: blur(10px);
   -moz-filter: blur(10px);
   -o-filter: blur(10px);
   filter: blur(10px);
+}
+.thunbnail-WeakMosaic{
+  -ms-filter: blur(6px);
+  -webkit-filter: blur(6px);
+  -moz-filter: blur(6px);
+  -o-filter: blur(6px);
+  filter: blur(6px);
+}
+.thunbnail-NoMosaic{
+  -ms-filter: blur(0px);
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  filter: blur(0px);
 }
 .video-project{
   width: 60%;
@@ -124,45 +159,65 @@ header{
   z-index: 99;
 }
 .person{
-  width: 10vw;
-  height:30vh;
+  /*width: 10vw;*/
+  height:20vw;
   z-index: 99;
 }
-.a{
-  background-color:rgba(255,0,0,0.5);
-  left: 5%;
+.A{
+  /*background-color:rgba(255,0,0,0.5);*/
+  left: 4%;
+}
+.B{
+  /*background-color:rgba(0,255,0,0.5);*/
+  left: 22%;
+}
+.C{
+  /*background-color:rgba(0,0,255,0.5);*/
+  left: 40%;
+}
+.D{
+  /*background-color:rgba(255,0,255,0.5);*/
+  left: 58%;
+}
+.E{
+  /*background-color:rgba(0,255,255,0.5);*/
+  left: 76%;
+}
+.F{
+  /*background-color:rgba(0,255,255,0.5);*/
+  left: 13%;
+}
+.G{
+  /*background-color:rgba(0,255,255,0.5);*/
+  left: 31%;
+}
+.H{
+  /*background-color:rgba(0,255,255,0.5);*/
+  left: 49%;
+}
+.I{
+  /*background-color:rgba(0,255,255,0.5);*/
+  left: 67%;
+}
+.moveL1{
+  transition:all 1s;
+  top:55vh;
+  position:fixed;
+}
+.moveR1{
+  transition:all 1s;
+  top:55vh;
+  position:fixed;
+}
+.moveL2{
+  transition:all 1s;
   top:50vh;
   position:fixed;
 }
-.b{
-  background-color:rgba(0,255,0,0.5);
-  left: 25%;
+.moveR2{
+  transition:all 1s;
   top:50vh;
   position:fixed;
-}
-.c{
-  background-color:rgba(0,0,255,0.5);
-  left: 45%;
-  top:50vh;
-  position:fixed;
-}
-.d{
-  background-color:rgba(255,0,255,0.5);
-  left: 65%;
-  top:50vh;
-  position:fixed;
-}
-.e{
-  background-color:rgba(0,255,255,0.5);
-  left: 85%;
-  top:50vh;
-  position:fixed;
-}
-.moveL{
-  transition:all 2s;
-}
-.moveR{
-  transition:all 2s;
 }
 .moveL-move{
   visibility: hidden;
