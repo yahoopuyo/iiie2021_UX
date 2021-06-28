@@ -30,7 +30,6 @@ header{
   position:fixed;
   z-index:10;
   /* border: 3px solid red; */
-
 }
 .container{
   width:90%;
@@ -42,8 +41,9 @@ header{
 .header-right{
   float:right;
 }
-.header-right a{
+.header-right p{
   font-size: 30pt;
+  cursor: pointer;
 }
 .logo{
   height: 20vh;
@@ -143,64 +143,4 @@ header{
 .flex-box img {
   width: 100%;
   margin: 10% 0 auto;
-}
-
-
-
-/* 3D carousel */
-.carousel {
-  position: absolute;
-  perspective: 500px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* border: 3px solid red; */
-}
-.carousel > * {
-  flex: 0 0 auto;
-}
-.carousel figure {
-  margin: 0;
-  width: 50%;
-  transform-style: preserve-3d;
-  transition: transform 1s;
-  display: inline;
-}
-.carousel figure img {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 0px;
-  vertical-align: middle;
-}
-.carousel figure img:not(:first-of-type) {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-.carousel nav {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0 0;
-  /* border: 3px solid red; */
-}
-.carousel nav button {
-  flex: 0 0 auto;
-  margin: 10vh 1vw;
-  cursor: pointer;
-  color: #333;
-  background: none;
-  border: 1px solid;
-  letter-spacing: 1px;
-  padding: 5px 10px;
-  height: 5vh;
-  z-index: 50;
-}
-.carousel nav button:hover {
-  color: red;
-}
-
-.carousel nav button.isActive{
-  background: linear-gradient(45deg,#bdb9ff,#67b8ff);
-  color: #000;
 }

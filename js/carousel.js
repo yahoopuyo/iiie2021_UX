@@ -1,15 +1,31 @@
+var vp = sessionStorage.getItem("visitedProjects");
+
+$( "#sessionReset" ).click(function() {
+  sessionStorage.clear();
+	alert("session will be refreshed");
+});
+
+//ロード時の処理
 window.addEventListener('load', () => {
 	var
 		carousels = document.querySelectorAll('.carousel');
-
-	for (var i = 0; i < carousels.length; i++) {
-		carousel(carousels[i]);
+		currImage=0;
+	//初めて全体ページを訪れた
+	if (vp == null || vp == "") {
+		vp=[];
+		sessionStorage.setItem('visitedProjects', [].toString());
+		alert("first time");
+	}else{
+		vp = vp.split(",");
+		currImage = vp[vp.length-1];
 	}
+	//カルーセル周りの処理
+	carousel(carousels[0],currImage);
 });
 
 
 // カルーセルの処理
-function carousel(root) {
+function carousel(root,currImage) {
 	var
 		figure = root.querySelector('figure'),
 		nav = root.querySelector('nav'),
@@ -19,7 +35,6 @@ function carousel(root) {
 		bfc = 'bfc' in root.dataset,
 
 		theta =  2 * Math.PI / n,
-		currImage = 0,
     able2click = true
 	;
 
@@ -50,6 +65,8 @@ function carousel(root) {
 		rotateCarousel(currImage);
 	}
 
+
+	//ここでは、クリックなど全般の処理をする
 	function setupNavigation() {
 		nav.addEventListener('click', onClick_nav, true);
     figure.addEventListener('click', onClick_fig, true);
@@ -104,6 +121,9 @@ function carousel(root) {
     function joinProjectPage() {
       // joinの時の遷移先の処理
       var project_id = ((currImage+n) % 2) + 1;
+			vp.push(currImage);
+			alert(vp);
+			sessionStorage.setItem("visitedProjects",vp.toString());
       window.location.href = `project${project_id}/index.html`;
     }
 
@@ -114,38 +134,3 @@ function carousel(root) {
 	}
 
 }
-
-
-// $("#transparent").click(function() {
-//   window.location.href = "../../project1/index.html";
-// }
-
-
-
-
-
-
-
-
-
-
-// var carousel = $(".carousel"),
-//     currdeg  = 0;
-//
-// $(".next").on("click", { d: "n" }, rotate);
-// $(".prev").on("click", { d: "p" }, rotate);
-//
-// function rotate(e){
-//   if(e.data.d=="n"){
-//     currdeg = currdeg - 30;
-//   }
-//   if(e.data.d=="p"){
-//     currdeg = currdeg + 30;
-//   }
-//   carousel.css({
-//     "-webkit-transform": "rotateY("+currdeg+"deg)",
-//     "-moz-transform": "rotateY("+currdeg+"deg)",
-//     "-o-transform": "rotateY("+currdeg+"deg)",
-//     "transform": "rotateY("+currdeg+"deg)"
-//   });
-// }
