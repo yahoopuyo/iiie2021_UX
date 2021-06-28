@@ -3,6 +3,7 @@
 ## Directory structure
 ```
 iiie2021_UX
+├── README.md
 ├── carousel                            //汚物
 │   ├── css
 │   │   └── stylesheet.css
