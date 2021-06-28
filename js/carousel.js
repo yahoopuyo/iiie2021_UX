@@ -5,19 +5,20 @@ $( "#sessionReset" ).click(function() {
 	alert("session will be refreshed");
 });
 
+
 //ロード時の処理
 window.addEventListener('load', () => {
-	var
-		carousels = document.querySelectorAll('.carousel');
-		currImage=0;
+	var carousels = document.querySelectorAll('.carousel');
+	var currImage=0;
 	//初めて全体ページを訪れた
 	if (vp == null || vp == "") {
 		vp=[];
 		sessionStorage.setItem('visitedProjects', [].toString());
-		alert("first time");
+		currImage = Math.floor( Math.random() * 13 ) ; //めんどくさいので13使っちゃいます
+		alert(`first time initial_id = ${currImage}`);
 	}else{
 		vp = vp.split(",");
-		currImage = vp[vp.length-1];
+		currImage = parseInt(vp[vp.length-1]);
 	}
 	//カルーセル周りの処理
 	carousel(carousels[0],currImage);
@@ -112,9 +113,12 @@ function carousel(root,currImage) {
     function onClick_fig(e) {
       e.stopPropagation();
       var t = e.target;
+			// alert(t.classList[1]);
 
       if (t.classList.contains('project')){
-        if (t.classList[1] == (currImage+n)%n+1) joinProjectPage();
+        if (t.classList[1] == (currImage+n)%n+1) {
+					joinProjectPage();
+				}
       }
     }
 
