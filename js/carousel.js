@@ -86,7 +86,7 @@ function carousel(root, currImage) {
       if (!able2click) return;
       able2click = false;
       setTimeout(function () {
-        able2click = true;
+        able2click = true;  
       }, 1000);
 
       var t = e.target;
