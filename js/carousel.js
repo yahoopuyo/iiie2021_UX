@@ -17,7 +17,7 @@ window.addEventListener("load", () => {
     vp = [];
     sessionStorage.setItem("visitedProjects", [].toString());
     currImage = Math.floor(Math.random() * 13); //めんどくさいので13使っちゃいます
-    alert(`first time initial_id = ${currImage}`);
+    alert(`visited this page for the first time: initial_id = ${currImage}`);
   } else {
     vp = vp.split(",");
     currImage = parseInt(vp[vp.length - 1]);
@@ -185,7 +185,7 @@ function showcase(root, currImage) {
     var project_id = ((current_Image_index + n) % 2) + 1;
     vp.push(current_Image_index % n);
     sessionStorage.setItem("visitedProjects", vp.toString());
-    alert("join2");
+    // alert("join2");
     window.location.href = `project${project_id}/index.html`;
   }
 }
