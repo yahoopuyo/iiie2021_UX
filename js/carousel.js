@@ -1,6 +1,6 @@
 var vp = sessionStorage.getItem("visitedProjects");
-var current_Image_index;
-var prev_Image_index;
+var current_Image_index=0;
+var prev_Image_index=0;
 
 $("#sessionReset").click(function () {
   sessionStorage.clear();
@@ -90,7 +90,7 @@ function carousel(root, currImage) {
       if (!able2click) return;
       able2click = false;
       setTimeout(function () {
-        able2click = true;  
+        able2click = true;
       }, 1000);
 
       var t = e.target;
@@ -138,15 +138,17 @@ function carousel(root, currImage) {
     if (init) {
       //遷移アニメーションなし
       figure.style.transition = "transform 0s";
+
     } else {
       images[(prev_imageIndex+10*n)%n].style.filter = "grayscale(80%)";
       figure.style.transition = "transform 1s";
+      var project_list = document.getElementsByTagName("li");
+      project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
     }
     images[(imageIndex+10*n)%n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
     var project_list = document.getElementsByTagName("li");
     project_list[(imageIndex+10*n)%n].children[0].style.border = "5px solid red";
-    project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
   }
 }
 
@@ -172,7 +174,7 @@ function showcase(root, currImage) {
       e.stopPropagation();
       var t = e.target;
       if (t.classList.contains("project")) {
-        current_Image_index = parseInt(t.classList[1]);
+        current_Image_index = parseInt(t.classList[1])-1;
         joinProjectPage();
       }
     }
