@@ -5,6 +5,7 @@ var prev_Image_index=0;
 $("#sessionReset").click(function () {
   sessionStorage.clear();
   alert("session will be refreshed");
+  location.reload();
 });
 
 //ロード時の処理
@@ -17,7 +18,7 @@ window.addEventListener("load", () => {
     vp = [];
     sessionStorage.setItem("visitedProjects", [].toString());
     currImage = Math.floor(Math.random() * 13); //めんどくさいので13使っちゃいます
-    alert(`visited this page for the first time: initial_id = ${currImage}`);
+    alert(`visited this page for the first time (animation)\ninitial project id : ${currImage}`);
   } else {
     vp = vp.split(",");
     currImage = parseInt(vp[vp.length - 1]);
