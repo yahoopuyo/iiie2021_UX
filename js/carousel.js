@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
   // 訪れたページの処理
   var project_list = document.getElementsByTagName("li");
   $.each(vp, function (index, value) {
-    project_list[value].children[0].children[0].style.filter = "grayscale(90%)";
+    project_list[value].children[0].style.filter = "grayscale(90%)";
   });
 });
 
@@ -139,9 +139,7 @@ function carousel(root, currImage) {
     images[imageIndex % n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
     var project_list = document.getElementsByTagName("li");
-    project_list[imageIndex].children[0].children[0].style.border =
-      "5px solid red";
-    project_list[prev_imageIndex].children[0].children[0].style.border =
-      "5px solid white";
+    project_list[imageIndex].children[0].style.border = "5px solid red";
+    project_list[prev_imageIndex].children[0].style.border = "5px solid white";
   }
 }
