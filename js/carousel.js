@@ -1,4 +1,6 @@
 var vp = sessionStorage.getItem("visitedProjects");
+var current_Image_index;
+var prev_Image_index;
 
 $("#sessionReset").click(function () {
   sessionStorage.clear();
@@ -8,6 +10,7 @@ $("#sessionReset").click(function () {
 //ロード時の処理
 window.addEventListener("load", () => {
   var carousels = document.querySelectorAll(".carousel");
+  var artworks = document.querySelectorAll(".flex-box");
   var currImage = 0;
   //初めて全体ページを訪れた
   if (vp == null || vp == "") {
@@ -21,6 +24,8 @@ window.addEventListener("load", () => {
   }
   //カルーセル周りの処理
   carousel(carousels[0], currImage);
+  // 作品リスト（カルーセルの下側）の処理
+  showcase(artworks[0], currImage);
   // 訪れたページの処理
   var project_list = document.getElementsByTagName("li");
   $.each(vp, function (index, value) {
@@ -80,7 +85,6 @@ function carousel(root, currImage) {
     );
 
     function onClick_nav(e) {
-      // alert("nav clicked")
       e.stopPropagation();
 
       if (!able2click) return;
@@ -98,10 +102,12 @@ function carousel(root, currImage) {
       if (t.classList.contains("next")) {
         var prevImage = currImage;
         currImage++;
+        current_Image_index = currImage;
         rotateCarousel(prevImage, currImage, false);
       } else if (t.classList.contains("prev")) {
         var prevImage = currImage;
         currImage--;
+        current_Image_index = currImage;
         rotateCarousel(prevImage, currImage, false);
       } else {
         joinProjectPage();
@@ -123,7 +129,7 @@ function carousel(root, currImage) {
       // joinの時の遷移先の処理
       var project_id = ((currImage+10*n) % 2) + 1;
       vp.push((currImage+10*n)%n);
-      alert(vp);
+//       alert(vp);
       sessionStorage.setItem("visitedProjects", vp.toString());
       window.location.href = `project${project_id}/index.html`;
     }
@@ -141,5 +147,43 @@ function carousel(root, currImage) {
     var project_list = document.getElementsByTagName("li");
     project_list[(imageIndex+10*n)%n].children[0].style.border = "5px solid red";
     project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
+  }
+}
+
+function showcase(root, currImage) {
+  var artwork_list = root.children;
+  var n = artwork_list.length;
+  setupNavigation();
+
+  function setupNavigation() {
+    root.addEventListener("click", onClick_fig, true);
+    root.addEventListener(
+      "mouseover",
+      function (e) {
+        var t = e.target;
+        if (t.classList.contains("project")) {
+          t.style.cursor = "pointer";
+        }
+      },
+      true
+    );
+
+    function onClick_fig(e) {
+      e.stopPropagation();
+      var t = e.target;
+      if (t.classList.contains("project")) {
+        current_Image_index = parseInt(t.classList[1]);
+        joinProjectPage();
+      }
+    }
+  }
+
+  function joinProjectPage() {
+    // joinの時の遷移先の処理
+    var project_id = ((current_Image_index + n) % 2) + 1;
+    vp.push(current_Image_index % n);
+    sessionStorage.setItem("visitedProjects", vp.toString());
+    alert("join2");
+    window.location.href = `project${project_id}/index.html`;
   }
 }
