@@ -142,6 +142,6 @@ function carousel(root, currImage) {
     project_list[imageIndex].children[0].children[0].style.border =
       "5px solid red";
     project_list[prev_imageIndex].children[0].children[0].style.border =
-      "5px solid green";
+      "5px solid white";
   }
 }
