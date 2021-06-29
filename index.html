@@ -4,7 +4,9 @@
   <meta charset="utf-8">
   <title>TENJIKUUKAN</title>
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width:480px)">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery読み込み-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"> <!-- responsive -->
 </head>
 <body>
 
@@ -21,9 +23,10 @@
       </div>
     </div>
   </header>
-  
+
   <div class="projects-wrapper">
     <div class="carousel" data-gap="20" data-bfc>
+      <div class="transparent" id="transparent"></div>
       <figure>
         <img class="project 1" src="images/desktop_0619.jpg" alt="">
         <img class="project 2" src="images/rainy.jpg" alt="">
@@ -40,8 +43,8 @@
         <img class="project 13" src="images/desktop_0619.jpg" alt="">
       </figure>
       <nav>
-        <button class="nav prev">Prev</button>
-        <button class="nav next">Next</button>
+        <img class="nav prev" src="images/back_btn.png" alt="">
+        <img class="nav next" src="images/next_btn.png" alt="">
       </nav>
     </div>
   </div>

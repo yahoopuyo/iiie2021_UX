@@ -63,15 +63,17 @@ function carousel(root,currImage) {
 			for (i = 0; i < n; i++)
 				 images[i].style.backfaceVisibility = 'hidden';
 
-		rotateCarousel(currImage);
+		rotateCarousel(currImage,true);
 	}
 
 
 	//ここでは、クリックなど全般の処理をする
 	function setupNavigation() {
+		$( "#transparent" ).click(function() {
+			joinProjectPage();
+		});
 		nav.addEventListener('click', onClick_nav, true);
     figure.addEventListener('click', onClick_fig, true);
-
     figure.addEventListener('mouseover', function(e){
       var t = e.target;
       if (t.classList.contains('project')) if(t.classList[1] == (currImage+n)%n+1){
@@ -94,27 +96,27 @@ function carousel(root,currImage) {
       // if (t.classList.contains('transparent')){
       //   joinProjectPage();
       // }
-			if (t.tagName.toUpperCase() != 'BUTTON')
+			if (t.tagName.toUpperCase() != 'IMG')
 				return;
 
 			if (t.classList.contains('next')) {
 				currImage++;
-        rotateCarousel(currImage);
+        rotateCarousel(currImage,false);
 			}
 			else if (t.classList.contains('prev')){
 				currImage--;
-        rotateCarousel(currImage);
+        rotateCarousel(currImage,false);
 			}
       else {
         joinProjectPage();
       }
+
 		}
 
     function onClick_fig(e) {
       e.stopPropagation();
       var t = e.target;
 			// alert(t.classList[1]);
-
       if (t.classList.contains('project')){
         if (t.classList[1] == (currImage+n)%n+1) {
 					joinProjectPage();
@@ -125,16 +127,26 @@ function carousel(root,currImage) {
     function joinProjectPage() {
       // joinの時の遷移先の処理
       var project_id = ((currImage+n) % 2) + 1;
-			vp.push(currImage);
+			vp.push(currImage%n);
 			alert(vp);
 			sessionStorage.setItem("visitedProjects",vp.toString());
       window.location.href = `project${project_id}/index.html`;
     }
 
 	}
-
-	function rotateCarousel(imageIndex) {
+	function rotateCarousel(imageIndex,init) {
+		if(init){
+			//遷移アニメーションなし
+			figure.style.transition = "transform 0s";
+		}else{
+			figure.style.transition = "transform 1s";
+		}
 		figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
+
+		images[imageIndex%n].style.filter = "grayscale(0%)";
+		images[(imageIndex+1)%n].style.filter="grayscale(80%)";
+		images[(imageIndex+n-1)%n].style.filter="grayscale(80%)";
+
 	}
 
 }

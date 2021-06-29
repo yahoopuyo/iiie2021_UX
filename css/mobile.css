@@ -1,0 +1,31 @@
+@media screen and (max-width: 480px){
+  header {
+      height:10vh;
+  }
+    .logo{
+      height: 10vh;
+  }
+    .header-right p{
+      font-size: 5pt;
+  }
+
+
+    .projects-wrapper2{
+      margin-top: 40vh;
+  }
+
+
+  .carousel figure{
+    width: 80%;
+    padding: 10px;
+  }
+  .carousel nav{
+    display: none;
+  }
+  .transparent{
+    display: none;
+  }
+  .flex-box li{
+    width: 45%;
+  }
+}
