@@ -63,7 +63,7 @@ function carousel(root,currImage) {
 			for (i = 0; i < n; i++)
 				 images[i].style.backfaceVisibility = 'hidden';
 
-		rotateCarousel(currImage,true);
+		rotateCarousel(0,currImage,true);
 	}
 
 
@@ -100,12 +100,14 @@ function carousel(root,currImage) {
 				return;
 
 			if (t.classList.contains('next')) {
+				var prevImage = currImage;
 				currImage++;
-        rotateCarousel(currImage,false);
+        rotateCarousel(prevImage,currImage,false);
 			}
 			else if (t.classList.contains('prev')){
+				var prevImage = currImage;
 				currImage--;
-        rotateCarousel(currImage,false);
+        rotateCarousel(prevImage,currImage,false);
 			}
       else {
         joinProjectPage();
@@ -134,19 +136,16 @@ function carousel(root,currImage) {
     }
 
 	}
-	function rotateCarousel(imageIndex,init) {
+	function rotateCarousel(prev_imageIndex,imageIndex,init) {
 		if(init){
 			//遷移アニメーションなし
 			figure.style.transition = "transform 0s";
 		}else{
+			images[prev_imageIndex%n] = "grayscale(80%)"
 			figure.style.transition = "transform 1s";
 		}
-		figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
-
 		images[imageIndex%n].style.filter = "grayscale(0%)";
-		images[(imageIndex+1)%n].style.filter="grayscale(80%)";
-		images[(imageIndex+n-1)%n].style.filter="grayscale(80%)";
-
+		figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
 	}
 
 }
