@@ -27,8 +27,8 @@ a {
 header{
   background-color:white;
   width:100%;
-  height:20vh;
-  position:fixed;
+  height:10vh;
+  /* position:fixed; */
   z-index:10;
   /* border: 3px solid red; */
 }
@@ -41,22 +41,29 @@ header{
 .header-left{
   float:left;
 }
-.header-right{
-  float:right;
-}
-.header-right p{
-  font-size: 30pt;
+.header-middle p{
+  font-size: 10pt;
   cursor: pointer;
 }
+.header-right{
+  float: right;
+}
+.header-right p{
+  color: gray;
+  font-size: 30pt;
+}
 .logo{
-  height: 20vh;
+  height: 10vh;
 }
 .projects-wrapper{
-  padding-top:20vh;
-  /* text-align:center; */
+  margin-top:3vh;
+  text-align:center;
   position: relative;
 }
-
+.project-name{
+  /* font-size: 40pt; */
+  padding-bottom: 2vh;
+}
 
 
 
@@ -69,7 +76,7 @@ header{
   flex-direction: column;
   align-items: center;
   z-index: 5;
-  /* border: 3px solid red; */
+  border: 3px solid red;
 }
 .carousel > * {
   flex: 0 0 auto;
@@ -86,7 +93,7 @@ header{
   box-sizing: border-box;
   padding: 0 0px;
   vertical-align: middle;
-  filter: grayscale(80%);
+  filter: grayscale(95%);
 }
 .carousel figure img:not(:first-of-type) {
   position: absolute;
@@ -146,6 +153,7 @@ header{
   width: 90vw;
   margin: 0 auto;
   margin-top:70vh;
+  text-align: center;
   /* position: relative; */
 }
 .flex-box{

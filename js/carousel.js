@@ -141,7 +141,7 @@ function carousel(root, currImage) {
       figure.style.transition = "transform 0s";
 
     } else {
-      images[(prev_imageIndex+10*n)%n].style.filter = "grayscale(80%)";
+      images[(prev_imageIndex+10*n)%n].style.filter = "grayscale(95%)";
       figure.style.transition = "transform 1s";
       var project_list = document.getElementsByTagName("li");
       project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
