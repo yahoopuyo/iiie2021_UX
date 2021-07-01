@@ -62,13 +62,14 @@ header{
 }
 .projects-wrapper{
   margin-top:3vh;
-
+  border: 3px solid blue;
   position: relative;
 }
 .project-name{
   /* font-size: 40pt; */
   padding-bottom: 2vh;
   text-align:center;
+  border: 3px solid red;
 }
 
 
