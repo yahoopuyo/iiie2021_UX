@@ -1,6 +1,20 @@
 var vp = sessionStorage.getItem("visitedProjects");
 var current_Image_index=0;
 var prev_Image_index=0;
+var project_names = ["神木のテラリウム",
+                    "Close To Me",
+                    "organ",
+                    "I-mage",
+                    "錯指",
+                    "ゼロマインド\n~0歳時パンク~",
+                    "希望の無意識グラフィティ",
+                    "Blue Skies",
+                    "肖像A",
+                    "Virtual Nininbaori",
+                    "約100年前の東大生",
+                    "立体浮世絵でKABUKU!",
+                    "なつのはな"
+                  ];
 
 $("#sessionReset").click(function () {
   sessionStorage.clear();
@@ -150,6 +164,9 @@ function carousel(root, currImage) {
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
     var project_list = document.getElementsByTagName("li");
     project_list[(imageIndex+10*n)%n].children[0].style.border = "5px solid red";
+
+    // 作品名の表示
+    $("#project-name").text(project_names[(imageIndex+10*n)%n]);
   }
 }
 
