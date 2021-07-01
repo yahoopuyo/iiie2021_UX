@@ -62,13 +62,13 @@ header{
 }
 .projects-wrapper{
   margin-top:3vh;
-  text-align:center;
+
   position: relative;
->>>>>>> visited_projects
 }
 .project-name{
   /* font-size: 40pt; */
   padding-bottom: 2vh;
+  text-align:center;
 }
 
 
