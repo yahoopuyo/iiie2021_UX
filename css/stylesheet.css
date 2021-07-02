@@ -46,9 +46,11 @@ header{
 }
 .header-middle p{
   font-size: 10pt;
-  width: 30vw;
+  width: 70vw;
   cursor: pointer;
   text-align: center;
+  border: 3px solid red;
+
 }
 .header-right{
   float: right;
@@ -56,7 +58,7 @@ header{
 }
 .header-right p{
   color: gray;
-  font-size: 25pt;
+  font-size: 30pt;
 }
 .logo{
   height: 10vh;
