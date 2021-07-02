@@ -14,16 +14,21 @@
       margin-top: 40vh;
   }
 
-  .carousel figure{
-    width: 80%;
-    padding: 10px;
+  .figure{
+    
   }
+
+
   .carousel nav{
     display: none;
   }
   .transparent{
     display: none;
   }
+
+
+
+
   .flex-box li{
     width: 45%;
   }
