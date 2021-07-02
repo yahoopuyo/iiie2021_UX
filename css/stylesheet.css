@@ -122,7 +122,7 @@ header{
   display: flex;
   width: 90%;
   justify-content: center;
-  z-index: 0;
+  z-index: 30;
   top: 50%; /*親要素を起点に上から50%*/
   left: 50%;  /*親要素を起点に左から50%*/
   transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
@@ -149,7 +149,7 @@ header{
   bottom: 0;
   left: 0;
   margin: auto;
-  z-index: 20;
+  z-index: 50;
   cursor: pointer;
 }
 
