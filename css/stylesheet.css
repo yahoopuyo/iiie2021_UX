@@ -134,6 +134,7 @@ header{
   flex: 0 0 auto;
   cursor: pointer;
   margin: auto 30vw;
+  z-index: 30;
   /* color: #333; */
   background: none;
   padding: 5px 5px;
