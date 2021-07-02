@@ -52,31 +52,35 @@ header{
 }
 .header-right{
   float: right;
+  height: 10vh;
 }
 .header-right p{
   color: gray;
-  font-size: 30pt;
+  font-size: 25pt;
 }
 .logo{
   height: 10vh;
 }
 .projects-wrapper{
   margin-top:3vh;
-  border: 3px solid blue;
+  /* border: 3px solid blue; */
   position: relative;
+  align-items: center;
+
 }
 .project-name{
   /* font-size: 40pt; */
   padding-bottom: 2vh;
   text-align:center;
-  border: 3px solid red;
+  /* border: 3px solid red; */
 }
 
 
 
 /* 3D carousel */
 .carousel {
-  /* width: 100vw; */
+  width: 100%;
+  margin: 0 auto;
   position: absolute;
   perspective: 500px;
   overflow: hidden;
