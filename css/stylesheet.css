@@ -49,7 +49,7 @@ header{
   width: 70vw;
   cursor: pointer;
   text-align: center;
-  border: 3px solid red;
+  /* border: 3px Rsolid red; */
 
 }
 .header-right{
