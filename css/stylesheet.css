@@ -49,7 +49,7 @@ header{
   width: 70vw;
   cursor: pointer;
   text-align: center;
-  /* border: 3px Rsolid red; */
+  /* border: 3px solid red; */
 
 }
 .header-right{
@@ -63,11 +63,17 @@ header{
 .logo{
   height: 10vh;
 }
+
 .projects-wrapper{
+  margin:0 auto;
   margin-top:3vh;
-  /* border: 3px solid blue; */
+  border: 3px solid blue;
+  height: 80vh;
+  width: 90vw;
+  /* padding: 70px 0; */
   position: relative;
   align-items: center;
+  overflow-x: hidden;
 
 }
 .project-name{
@@ -81,39 +87,36 @@ header{
 
 /* 3D carousel */
 .carousel {
-  width: 100%;
   margin: 0 auto;
-  position: absolute;
-  perspective: 500px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 5;
+  margin-top: 20vh;
+  width: 25vw;
+  height: 30vh;
+  position: relative;
+  perspective: 2000px;
   /* border: 3px solid red; */
 }
-.carousel > * {
+/* .carousel > * {
   flex: 0 0 auto;
-}
-.carousel figure {
-  margin: 0;
-  width: 50%;
+} */
+.figure {
+  height: 100%;
+  width: 100%;
+  position: absolute;
   transform-style: preserve-3d;
   transition: transform 1s;
-  display: inline;
+  /* border: 3px solid red; */
+  /* vertical-align: center; */
+
 }
-.carousel figure img {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 0px;
-  vertical-align: middle;
+.figure img {
+  display: block;
+  position: absolute;
+  width: 25vw;
+  /* height: 30vh; */
+  opacity: 0.5;
   filter: grayscale(95%);
 }
-.carousel figure img:not(:first-of-type) {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
+
 .carousel nav {
   position: absolute;
   display: flex;

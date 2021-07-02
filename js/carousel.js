@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
 
 // カルーセルの処理
 function carousel(root, currImage) {
-  var figure = root.querySelector("figure"),
+  var figure = document.querySelectorAll(".figure")[0],
     nav = root.querySelector("nav"),
     images = figure.children,
     n = images.length,
@@ -67,12 +67,12 @@ function carousel(root, currImage) {
 
   function setupCarousel(n, s) {
     var apothem = s / (2 * Math.tan(Math.PI / n));
-    figure.style.transformOrigin = `50% 50% ${-apothem}px`;
+    // figure.style.transformOrigin = `50% 50% ${-apothem}px`;
 
-    for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
-    for (i = 1; i < n; i++) {
-      images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
-      images[i].style.transform = `rotateY(${i * theta}rad)`;
+    // for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
+    for (i = 0; i < n; i++) {
+      // images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
+      images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${apothem+100}px)`;
     }
     if (bfc)
       for (i = 0; i < n; i++) images[i].style.backfaceVisibility = "hidden";
