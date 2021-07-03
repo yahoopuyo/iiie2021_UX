@@ -1,20 +1,21 @@
 var vp = sessionStorage.getItem("visitedProjects");
-var current_Image_index=0;
-var prev_Image_index=0;
-var project_names = ["神木のテラリウム",
-                    "Close To Me",
-                    "organ",
-                    "I-mage",
-                    "錯指",
-                    "ゼロマインド\n~0歳時パンク~",
-                    "希望の無意識グラフィティ",
-                    "Blue Skies",
-                    "肖像A",
-                    "Virtual Nininbaori",
-                    "約100年前の東大生",
-                    "立体浮世絵でKABUKU!",
-                    "なつのはな"
-                  ];
+var current_Image_index = 0;
+var prev_Image_index = 0;
+var project_names = [
+  "神木のテラリウム",
+  "Close To Me",
+  "organ",
+  "I-mage",
+  "錯指",
+  "ゼロマインド\n~0歳時パンク~",
+  "希望の無意識グラフィティ",
+  "Blue Skies",
+  "肖像A",
+  "Virtual Nininbaori",
+  "約100年前の東大生",
+  "立体浮世絵でKABUKU!",
+  "なつのはな",
+];
 
 $("#sessionReset").click(function () {
   sessionStorage.clear();
@@ -32,7 +33,9 @@ window.addEventListener("load", () => {
     vp = [];
     sessionStorage.setItem("visitedProjects", [].toString());
     currImage = Math.floor(Math.random() * 13); //めんどくさいので13使っちゃいます
-    alert(`visited this page for the first time (animation)\ninitial project id : ${currImage}`);
+    alert(
+      `visited this page for the first time (animation)\ninitial project id : ${currImage}`
+    );
   } else {
     vp = vp.split(",");
     currImage = parseInt(vp[vp.length - 1]);
@@ -92,7 +95,7 @@ function carousel(root, currImage) {
       function (e) {
         var t = e.target;
         if (t.classList.contains("project"))
-          if (t.classList[1] == ((currImage+10*n)%n) + 1) {
+          if (t.classList[1] == ((currImage + 10 * n) % n) + 1) {
             t.style.cursor = "pointer";
           }
       },
@@ -134,7 +137,7 @@ function carousel(root, currImage) {
       var t = e.target;
       // alert(t.classList[1]);
       if (t.classList.contains("project")) {
-        if (t.classList[1] == ((currImage+10*n)%n) + 1) {
+        if (t.classList[1] == ((currImage + 10 * n) % n) + 1) {
           joinProjectPage();
         }
       }
@@ -142,9 +145,9 @@ function carousel(root, currImage) {
 
     function joinProjectPage() {
       // joinの時の遷移先の処理
-      var project_id = ((currImage+10*n) % 2) + 1;
-      vp.push((currImage+10*n)%n);
-//       alert(vp);
+      var project_id = ((currImage + 10 * n) % 2) + 1;
+      vp.push((currImage + 10 * n) % n);
+      //       alert(vp);
       sessionStorage.setItem("visitedProjects", vp.toString());
       window.location.href = `project${project_id}/index.html`;
     }
@@ -153,20 +156,30 @@ function carousel(root, currImage) {
     if (init) {
       //遷移アニメーションなし
       figure.style.transition = "transform 0s";
-
     } else {
-      images[(prev_imageIndex+10*n)%n].style.filter = "grayscale(95%)";
+      images[(prev_imageIndex + 10 * n) % n].style.filter = "grayscale(95%)";
       figure.style.transition = "transform 1s";
       var project_list = document.getElementsByTagName("li");
-      project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
+
+      var project_number = (prev_imageIndex + 10 * n) % n;
+      if (project_number >= 10) {
+        project_number += 1;
+      }
+      project_list[project_number].children[0].style.border = "5px solid white";
+      // project_list[(prev_imageIndex + 10 * n) % n].children[0].style.border = "5px solid white";
     }
-    images[(imageIndex+10*n)%n].style.filter = "grayscale(0%)";
+    images[(imageIndex + 10 * n) % n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
     var project_list = document.getElementsByTagName("li");
-    project_list[(imageIndex+10*n)%n].children[0].style.border = "5px solid red";
+    var project_number = (imageIndex + 10 * n) % n;
+    if (project_number >= 10) {
+      project_number += 1;
+    }
+    project_list[project_number].children[0].style.border = "5px solid red";
+    // project_list[(imageIndex + 10 * n) % n].children[0].style.border = "5px solid red";
 
     // 作品名の表示
-    $("#project-name").text(project_names[(imageIndex+10*n)%n]);
+    $("#project-name").text(project_names[(imageIndex + 10 * n) % n]);
   }
 }
 
@@ -192,7 +205,7 @@ function showcase(root, currImage) {
       e.stopPropagation();
       var t = e.target;
       if (t.classList.contains("project")) {
-        current_Image_index = parseInt(t.classList[1])-1;
+        current_Image_index = parseInt(t.classList[1]) - 1;
         joinProjectPage();
       }
     }
