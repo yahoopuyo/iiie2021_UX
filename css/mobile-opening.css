@@ -1,0 +1,84 @@
+@media screen and (max-width: 480px){
+    
+    .person{
+        height:30vh;
+    }
+    .A{
+        /*background-color:rgba(255,0,0,0.5);*/
+        left: 4%;
+    }
+    .B{
+        /*background-color:rgba(0,255,0,0.5);*/
+        left: 26%;
+    }
+    .C{
+        /*background-color:rgba(0,0,255,0.5);*/
+        left: 48%;
+    }
+    .D{
+        /*background-color:rgba(0,255,255,0.5);*/
+        left: 70%;
+    }
+    .E{
+        /*background-color:rgba(255,0,255,0.5);*/
+        left: 28%;
+    }
+    .F{
+        /*background-color:rgba(0,255,255,0.5);*/
+        left: 50%;
+    }
+    .G{
+        /*background-color:rgba(0,255,255,0.5);*/
+        left: 72%;
+    }
+    .moveL{
+        top:60vh;
+    }
+    .barL{
+        width:95vw;
+        top:85vh;
+    }
+    .barR{
+        width:70vw;
+        top:70vh;
+        left:30vw;
+    }
+    .click-guideL-wrapper{
+        top:20vh;
+        position:fixed;
+        transition:all 1s;
+        left:-700px;
+    }
+    .click-guideL{
+        position:relative;
+        height:10vh;
+        width:90vw;
+        /*left: -700px;*/
+        padding-top: 1vh;
+        padding-left: 5vw;
+        background-color:rgba(0,0,0,0.6);
+        color: white;
+        font-size: 20px;
+        border-top-right-radius: 35px;
+        border-bottom-right-radius: 35px;
+    }
+    .click-guideR-wrapper{
+        top:30vh;
+        right:-700px;
+        position:fixed;
+        transition:all 1s;
+    }
+    .click-guideR{
+        position:relative;
+        height:10vh;
+        width:50vw;
+        padding-top: 12px;
+        padding-left: 10vw;
+        background-color:rgba(0,0,0,0.6);
+        color: white;
+        font-size: 20px;
+        border-top-left-radius: 35px;
+        border-bottom-left-radius: 35px;
+        /*background-color: blue;*/
+    }
+}
