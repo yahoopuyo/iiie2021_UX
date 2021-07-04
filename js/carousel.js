@@ -1,35 +1,37 @@
 var vp = sessionStorage.getItem("visitedProjects");
 
-var current_Image_index=0;
-var prev_Image_index=0;
-var project_names = ["神木のテラリウム",
-                    "Close To Me",
-                    "organ",
-                    "I-mage",
-                    "錯指",
-                    "ゼロマインド~0歳時パンク~",
-                    "希望の無意識グラフィティ",
-                    "Blue Skies",
-                    "肖像A",
-                    "Virtual Nininbaori",
-                    "約100年前の東大生",
-                    "立体浮世絵でKABUKU!",
-                    "なつのはな"
-                  ];
-var gap_car;//カルーセルのプロジェクト間の隙間
+var current_Image_index = 0;
+var prev_Image_index = 0;
+var project_names = [
+  "神木のテラリウム",
+  "Close To Me",
+  "organ",
+  "I-mage",
+  "錯指",
+  "ゼロマインド~0歳児パンク~",
+  "希望の無意識グラフィティ",
+  "Blue Skies",
+  "肖像A",
+  "Virtual Nininbaori",
+  "約100年前の東大生",
+  "立体浮世絵でKABUKU!",
+  "なつのはな",
+];
+var gap_car; //カルーセルのプロジェクト間の隙間
 //スマホとpcの区別
-if (window.matchMedia('(max-width: 480px)').matches) {
-    //スマホ処理
-    gap_car = 15;
-} else if (window.matchMedia('(min-width:480px)').matches) {
-    //PC処理
-    gap_car = 100;
+if (window.matchMedia("(max-width: 480px)").matches) {
+  //スマホ処理
+  gap_car = 15;
+  $("#remove_panda").remove();
+} else if (window.matchMedia("(min-width:480px)").matches) {
+  //PC処理
+  gap_car = 100;
 }
 
 //globalize showcase_list
 var showcase_list = document.getElementsByTagName("li");
-showcase_list = $.grep(showcase_list,function(v){
-  return v.children[0].classList[0] === "project";
+showcase_list = $.grep(showcase_list, function (v) {
+  return v.children[0].classList[0] === "image";
 });
 
 $("#sessionReset").click(function () {
@@ -96,7 +98,9 @@ function carousel(root, currImage) {
     // for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
     for (i = 0; i < n; i++) {
       // images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
-      images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${apothem+gap_car}px)`;
+      images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${
+        apothem + gap_car
+      }px)`;
     }
     rotateCarousel(0, currImage, true);
   }
@@ -178,7 +182,8 @@ function carousel(root, currImage) {
       images[(prev_imageIndex + 10 * n) % n].style.filter = "grayscale(95%)";
       figure.style.transition = "transform 1s";
       var project_number = (prev_imageIndex + 10 * n) % n;
-      showcase_list[project_number].children[0].style.border = "5px solid white";
+      showcase_list[project_number].children[0].style.border =
+        "5px solid white";
     }
     images[(imageIndex + 10 * n) % n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
@@ -199,11 +204,11 @@ function showcase(root, currImage) {
 
   function setupNavigation() {
     root.addEventListener("click", onClick_fig, true);
-    root.addEventListener(
+    /*     root.addEventListener(
       "mouseover",
       function (e) {
         var t = e.target;
-        if (t.classList.contains("project")) {
+        if (t.classList.contains("image")) {
           t.style.cursor = "pointer";
           t.style.transform = "scale(1.2)";
           t.style.transitionDuration = "0.5s";
@@ -215,18 +220,18 @@ function showcase(root, currImage) {
       "mouseout",
       function (e) {
         var t = e.target;
-        if (t.classList.contains("project")) {
+        if (t.classList.contains("image")) {
           t.style.transform = "scale(1.0)";
           t.style.transitionDuration = "0.5s";
         }
       },
       true
-    );
+    ); */
 
     function onClick_fig(e) {
       e.stopPropagation();
       var t = e.target;
-      if (t.classList.contains("project")) {
+      if (t.classList.contains("image")) {
         current_Image_index = parseInt(t.classList[1]) - 1;
         joinProjectPage();
       }
