@@ -198,7 +198,7 @@ header{
 .flex-box li{
   width: 18%;
   position: relative;
-  
+
   /* margin: 0 0 0 auto; */
   /* border: 3px solid red; */
 }
@@ -212,7 +212,7 @@ header{
 
 
 /*.project1 {
-  } 
+  }
   */
 
 figcaption {
@@ -235,7 +235,8 @@ figcaption {
 }
 
 .flex-box p{
-  font-size: 20pt;
+  font-size: 16pt;
+  text-align: center;
 }
 
 .flex-box li:hover figcaption {
