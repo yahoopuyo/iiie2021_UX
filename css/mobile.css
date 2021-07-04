@@ -28,11 +28,10 @@
     perspective: 5000px;
   }
 
-  .carousel nav {
-    z-index: 10000;
-  }
+
   .carousel nav img {
     height: 30px;
+    margin: auto 20vw;
   }
 
   .figure img{

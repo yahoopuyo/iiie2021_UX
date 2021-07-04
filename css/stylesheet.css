@@ -124,23 +124,21 @@ header{
   display: flex;
   width: 90%;
   justify-content: center;
-  z-index: 30;
   top: 50%; /*親要素を起点に上から50%*/
   left: 50%;  /*親要素を起点に左から50%*/
-  transform: translateY(-50%) translateX(-50%); /*要素の大きさの半分ずつを戻す*/
-  -webkit-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%) translateZ(1000px); /*要素の大きさの半分ずつを戻す*/
+  -webkit-transform: translateY(-50%) translateX(-50%) translateZ(1000px);
   /* border: 3px solid red; */
 }
 .carousel nav img {
   /* position: absolute; */
   flex: 0 0 auto;
   cursor: pointer;
-  margin: auto 30vw;
-  z-index: 30;
+  margin: auto 15vw;
   /* color: #333; */
   background: none;
   padding: 5px 5px;
-  height: 10vh;
+  height: 50px;
 }
 
 .transparent{
