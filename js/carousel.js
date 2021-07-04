@@ -56,7 +56,9 @@ window.addEventListener("load", () => {
   // 訪れたページの処理
   var project_list = document.getElementsByTagName("li");
   $.each(vp, function (index, value) {
-    project_list[value].children[0].style.filter = "grayscale(90%)";
+    var project_number = parseInt(value);
+    if (project_number>=10) project_number+=1;
+    project_list[project_number].children[0].style.filter = "grayscale(90%)";
   });
 });
 
