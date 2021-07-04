@@ -2,29 +2,57 @@
   header {
       height:10vh;
   }
-    .logo{
-      height: 10vh;
+  .logo{
+      height: 5vh;
   }
-    .header-right p{
-      font-size: 5pt;
+  .header-right p{
+      font-size: 20pt;
+  }
+
+  .projects-wrapper{
+    height: 40vh;
+  }
+  .projects-wrapper2{
+      /* margin-top: 40vh; */
+  }
+
+  .project-name{
+    font-size: 18pt;
   }
 
 
-    .projects-wrapper2{
-      margin-top: 40vh;
+  .carousel{
+    width: 208px;
+    height: 117px;
+    margin-top: 3vh;
+    perspective: 5000px;
   }
 
 
-  .carousel figure{
-    width: 80%;
-    padding: 10px;
+  .carousel nav img {
+    height: 30px;
+    margin: auto 20vw;
   }
-  .carousel nav{
+
+  .figure img{
+    width: 208px;
+  }
+
+  /* .carousel nav{
     display: none;
-  }
+  } */
+
+
   .transparent{
-    display: none;
+    /* display: none; */
+    width: 208px;
+    height: 117px;
+    /* border: 3px solid red; */
   }
+
+
+
+
   .flex-box li{
     width: 45%;
   }
