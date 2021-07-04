@@ -26,6 +26,12 @@ if (window.matchMedia('(max-width: 480px)').matches) {
     gap_car = 100;
 }
 
+//globalize showcase_list
+var showcase_list = document.getElementsByTagName("li");
+showcase_list = $.grep(showcase_list,function(v){
+  return v.children[0].classList[0] === "project";
+});
+
 $("#sessionReset").click(function () {
   sessionStorage.clear();
   alert("session will be refreshed");
@@ -54,11 +60,8 @@ window.addEventListener("load", () => {
   // 作品リスト（カルーセルの下側）の処理
   showcase(artworks[0], currImage);
   // 訪れたページの処理
-  var project_list = document.getElementsByTagName("li");
   $.each(vp, function (index, value) {
-    var project_number = parseInt(value);
-    if (project_number>=10) project_number+=1;
-    project_list[project_number].children[0].style.filter = "grayscale(90%)";
+    showcase_list[value].children[0].style.filter = "grayscale(90%)";
   });
 });
 
@@ -88,7 +91,6 @@ function carousel(root, currImage) {
       // images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
       images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${apothem+gap_car}px)`;
     }
-
     rotateCarousel(0, currImage, true);
   }
 
@@ -168,24 +170,13 @@ function carousel(root, currImage) {
     } else {
       images[(prev_imageIndex + 10 * n) % n].style.filter = "grayscale(95%)";
       figure.style.transition = "transform 1s";
-      var project_list = document.getElementsByTagName("li");
-
       var project_number = (prev_imageIndex + 10 * n) % n;
-      if (project_number >= 10) {
-        project_number += 1;
-      }
-      project_list[project_number].children[0].style.border = "5px solid white";
-      // project_list[(prev_imageIndex + 10 * n) % n].children[0].style.border = "5px solid white";
+      showcase_list[project_number].children[0].style.border = "5px solid white";
     }
     images[(imageIndex + 10 * n) % n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
-    var project_list = document.getElementsByTagName("li");
     var project_number = (imageIndex + 10 * n) % n;
-    if (project_number >= 10) {
-      project_number += 1;
-    }
-    project_list[project_number].children[0].style.border = "5px solid red";
-    // project_list[(imageIndex + 10 * n) % n].children[0].style.border = "5px solid red";
+    showcase_list[project_number].children[0].style.border = "5px solid red";
 
     // 作品名の表示
     $("#project-name").text(project_names[(imageIndex + 10 * n) % n]);
