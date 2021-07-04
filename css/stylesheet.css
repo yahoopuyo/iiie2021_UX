@@ -115,6 +115,8 @@ header{
   /* height: 30vh; */
   /* opacity: 0.5; */
   filter: grayscale(95%);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .carousel nav {

@@ -86,8 +86,6 @@ function carousel(root, currImage) {
       // images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
       images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${apothem+gap_car}px)`;
     }
-    if (bfc)
-      for (i = 0; i < n; i++) images[i].style.backfaceVisibility = "hidden";
 
     rotateCarousel(0, currImage, true);
   }
