@@ -2,28 +2,49 @@
   header {
       height:10vh;
   }
-    .logo{
+  .logo{
       height: 5vh;
   }
-    .header-right p{
+  .header-right p{
       font-size: 20pt;
   }
 
-
+  .projects-wrapper{
+    height: 40vh;
+  }
   .projects-wrapper2{
-      margin-top: 40vh;
+      /* margin-top: 40vh; */
   }
 
-  .figure{
-    
+  .project-name{
+    font-size: 18pt;
   }
 
 
-  .carousel nav{
+  .carousel{
+    width: 208px;
+    height: 117px;
+    margin-top: 3vh;
+    perspective: 5000px;
+  }
+  .carousel nav img {
+    height: 30px;
+  }
+
+  .figure img{
+    width: 208px;
+  }
+
+  /* .carousel nav{
     display: none;
-  }
+  } */
+
+
   .transparent{
-    display: none;
+    /* display: none; */
+    width: 208px;
+    height: 117px;
+    border: 3px solid red;
   }
 
 
