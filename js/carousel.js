@@ -22,6 +22,7 @@ var gap_car; //カルーセルのプロジェクト間の隙間
 if (window.matchMedia("(max-width: 480px)").matches) {
   //スマホ処理
   gap_car = 15;
+  $("#remove_panda").remove();
 } else if (window.matchMedia("(min-width:480px)").matches) {
   //PC処理
   gap_car = 100;
