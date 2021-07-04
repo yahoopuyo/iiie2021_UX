@@ -1,4 +1,5 @@
 var vp = sessionStorage.getItem("visitedProjects");
+
 var current_Image_index=0;
 var prev_Image_index=0;
 var project_names = ["神木のテラリウム",
@@ -6,7 +7,7 @@ var project_names = ["神木のテラリウム",
                     "organ",
                     "I-mage",
                     "錯指",
-                    "ゼロマインド\n~0歳時パンク~",
+                    "ゼロマインド~0歳時パンク~",
                     "希望の無意識グラフィティ",
                     "Blue Skies",
                     "肖像A",
@@ -15,6 +16,21 @@ var project_names = ["神木のテラリウム",
                     "立体浮世絵でKABUKU!",
                     "なつのはな"
                   ];
+var gap_car;//カルーセルのプロジェクト間の隙間
+//スマホとpcの区別
+if (window.matchMedia('(max-width: 480px)').matches) {
+    //スマホ処理
+    gap_car = 15;
+} else if (window.matchMedia('(min-width:480px)').matches) {
+    //PC処理
+    gap_car = 100;
+}
+
+//globalize showcase_list
+var showcase_list = document.getElementsByTagName("li");
+showcase_list = $.grep(showcase_list,function(v){
+  return v.children[0].classList[0] === "project";
+});
 
 $("#sessionReset").click(function () {
   sessionStorage.clear();
@@ -32,8 +48,7 @@ window.addEventListener("load", () => {
     vp = [];
     sessionStorage.setItem("visitedProjects", [].toString());
     currImage = Math.floor(Math.random() * 13); //めんどくさいので13使っちゃいます
-    //alert(`visited this page for the first time (animation)\ninitial project id : ${currImage}`);
-
+    
     //ここから
     $('.shutter').css({'display':'block'});
     $('.shutter').css({'background-color':'rgba(255,255,255,0.8);'});
@@ -43,7 +58,6 @@ window.addEventListener("load", () => {
     $('.main').css({'filter':'blur(20px)'});
     $('.main').css({'transition':'all 0s'});
     //ここまで
-
   } else {
     vp = vp.split(",");
     currImage = parseInt(vp[vp.length - 1]);
@@ -53,15 +67,14 @@ window.addEventListener("load", () => {
   // 作品リスト（カルーセルの下側）の処理
   showcase(artworks[0], currImage);
   // 訪れたページの処理
-  var project_list = document.getElementsByTagName("li");
   $.each(vp, function (index, value) {
-    project_list[value].children[0].style.filter = "grayscale(90%)";
+    showcase_list[value].children[0].style.filter = "grayscale(90%)";
   });
 });
 
 // カルーセルの処理
 function carousel(root, currImage) {
-  var figure = root.querySelector("figure"),
+  var figure = document.querySelectorAll(".figure")[0],
     nav = root.querySelector("nav"),
     images = figure.children,
     n = images.length,
@@ -78,16 +91,13 @@ function carousel(root, currImage) {
 
   function setupCarousel(n, s) {
     var apothem = s / (2 * Math.tan(Math.PI / n));
-    figure.style.transformOrigin = `50% 50% ${-apothem}px`;
+    // figure.style.transformOrigin = `50% 50% ${-apothem}px`;
 
-    for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
-    for (i = 1; i < n; i++) {
-      images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
-      images[i].style.transform = `rotateY(${i * theta}rad)`;
+    // for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
+    for (i = 0; i < n; i++) {
+      // images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
+      images[i].style.transform = `rotateY(${i * theta}rad) translateZ(${apothem+gap_car}px)`;
     }
-    if (bfc)
-      for (i = 0; i < n; i++) images[i].style.backfaceVisibility = "hidden";
-
     rotateCarousel(0, currImage, true);
   }
 
@@ -103,7 +113,7 @@ function carousel(root, currImage) {
       function (e) {
         var t = e.target;
         if (t.classList.contains("project"))
-          if (t.classList[1] == ((currImage+10*n)%n) + 1) {
+          if (t.classList[1] == ((currImage + 10 * n) % n) + 1) {
             t.style.cursor = "pointer";
           }
       },
@@ -145,7 +155,7 @@ function carousel(root, currImage) {
       var t = e.target;
       // alert(t.classList[1]);
       if (t.classList.contains("project")) {
-        if (t.classList[1] == ((currImage+10*n)%n) + 1) {
+        if (t.classList[1] == ((currImage + 10 * n) % n) + 1) {
           joinProjectPage();
         }
       }
@@ -153,9 +163,9 @@ function carousel(root, currImage) {
 
     function joinProjectPage() {
       // joinの時の遷移先の処理
-      var project_id = ((currImage+10*n) % 2) + 1;
-      vp.push((currImage+10*n)%n);
-//       alert(vp);
+      var project_id = ((currImage + 10 * n) % 2) + 1;
+      vp.push((currImage + 10 * n) % n);
+      //       alert(vp);
       sessionStorage.setItem("visitedProjects", vp.toString());
       window.location.href = `project${project_id}/index.html`;
     }
@@ -164,26 +174,27 @@ function carousel(root, currImage) {
     if (init) {
       //遷移アニメーションなし
       figure.style.transition = "transform 0s";
-
     } else {
-      images[(prev_imageIndex+10*n)%n].style.filter = "grayscale(95%)";
+      images[(prev_imageIndex + 10 * n) % n].style.filter = "grayscale(95%)";
       figure.style.transition = "transform 1s";
-      var project_list = document.getElementsByTagName("li");
-      project_list[(prev_imageIndex+10*n)%n].children[0].style.border = "5px solid white";
+      var project_number = (prev_imageIndex + 10 * n) % n;
+      showcase_list[project_number].children[0].style.border = "5px solid white";
     }
-    images[(imageIndex+10*n)%n].style.filter = "grayscale(0%)";
+    images[(imageIndex + 10 * n) % n].style.filter = "grayscale(0%)";
     figure.style.transform = `rotateY(${imageIndex * -theta}rad)`;
-    var project_list = document.getElementsByTagName("li");
-    project_list[(imageIndex+10*n)%n].children[0].style.border = "5px solid red";
+    var project_number = (imageIndex + 10 * n) % n;
+    showcase_list[project_number].children[0].style.border = "5px solid red";
 
     // 作品名の表示
-    $("#project-name").text(project_names[(imageIndex+10*n)%n]);
+    $("#project-name").text(project_names[(imageIndex + 10 * n) % n]);
   }
 }
 
 function showcase(root, currImage) {
   var artwork_list = root.children;
   var n = artwork_list.length;
+
+  // click時の処理などの関数
   setupNavigation();
 
   function setupNavigation() {
@@ -194,6 +205,19 @@ function showcase(root, currImage) {
         var t = e.target;
         if (t.classList.contains("project")) {
           t.style.cursor = "pointer";
+          t.style.transform = "scale(1.2)";
+          t.style.transitionDuration = "0.5s";
+        }
+      },
+      true
+    );
+    root.addEventListener(
+      "mouseout",
+      function (e) {
+        var t = e.target;
+        if (t.classList.contains("project")) {
+          t.style.transform = "scale(1.0)";
+          t.style.transitionDuration = "0.5s";
         }
       },
       true
@@ -203,7 +227,7 @@ function showcase(root, currImage) {
       e.stopPropagation();
       var t = e.target;
       if (t.classList.contains("project")) {
-        current_Image_index = parseInt(t.classList[1])-1;
+        current_Image_index = parseInt(t.classList[1]) - 1;
         joinProjectPage();
       }
     }
@@ -214,7 +238,6 @@ function showcase(root, currImage) {
     var project_id = ((current_Image_index + n) % 2) + 1;
     vp.push(current_Image_index % n);
     sessionStorage.setItem("visitedProjects", vp.toString());
-    // alert("join2");
     window.location.href = `project${project_id}/index.html`;
   }
 }
