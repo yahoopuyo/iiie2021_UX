@@ -8,7 +8,7 @@ var project_names = [
   "organ",
   "I-mage",
   "錯指",
-  "ゼロマインド~0歳時パンク~",
+  "ゼロマインド~0歳児パンク~",
   "希望の無意識グラフィティ",
   "Blue Skies",
   "肖像A",
@@ -197,7 +197,7 @@ function showcase(root, currImage) {
 
   function setupNavigation() {
     root.addEventListener("click", onClick_fig, true);
-    root.addEventListener(
+    /*     root.addEventListener(
       "mouseover",
       function (e) {
         var t = e.target;
@@ -219,7 +219,7 @@ function showcase(root, currImage) {
         }
       },
       true
-    );
+    ); */
 
     function onClick_fig(e) {
       e.stopPropagation();
