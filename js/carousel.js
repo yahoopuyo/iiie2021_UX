@@ -186,6 +186,8 @@ function carousel(root, currImage) {
 function showcase(root, currImage) {
   var artwork_list = root.children;
   var n = artwork_list.length;
+
+  // click時の処理などの関数
   setupNavigation();
 
   function setupNavigation() {
@@ -196,6 +198,19 @@ function showcase(root, currImage) {
         var t = e.target;
         if (t.classList.contains("project")) {
           t.style.cursor = "pointer";
+          t.style.transform = "scale(1.2)";
+          t.style.transitionDuration = "0.5s";
+        }
+      },
+      true
+    );
+    root.addEventListener(
+      "mouseout",
+      function (e) {
+        var t = e.target;
+        if (t.classList.contains("project")) {
+          t.style.transform = "scale(1.0)";
+          t.style.transitionDuration = "0.5s";
         }
       },
       true
@@ -216,7 +231,6 @@ function showcase(root, currImage) {
     var project_id = ((current_Image_index + n) % 2) + 1;
     vp.push(current_Image_index % n);
     sessionStorage.setItem("visitedProjects", vp.toString());
-    // alert("join2");
     window.location.href = `project${project_id}/index.html`;
   }
 }
