@@ -50,9 +50,16 @@ window.addEventListener("load", () => {
     vp = [];
     sessionStorage.setItem("visitedProjects", [].toString());
     currImage = Math.floor(Math.random() * 13); //めんどくさいので13使っちゃいます
-    alert(
-      `visited this page for the first time (animation)\ninitial project id : ${currImage}`
-    );
+    
+    //ここから
+    $('.shutter').css({'display':'block'});
+    $('.shutter').css({'background-color':'rgba(255,255,255,0.8);'});
+    $('html').css({'overflow':'hidden'});
+    $('body').css({'overflow':'hidden'});
+    $('.main').css({'transform':'scale(0.6)'});
+    $('.main').css({'filter':'blur(20px)'});
+    $('.main').css({'transition':'all 0s'});
+    //ここまで
   } else {
     vp = vp.split(",");
     currImage = parseInt(vp[vp.length - 1]);
