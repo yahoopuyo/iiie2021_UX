@@ -197,47 +197,49 @@ header{
 
 .flex-box li{
   width: 18%;
+  position: relative;
+  
   /* margin: 0 0 0 auto; */
   /* border: 3px solid red; */
 }
+
 .flex-box img {
   width: 100%;
-  margin: 10% 0 auto;
+  margin: 5% 5% auto auto;
   border: 5px solid white;
+  cursor: pointer;
 }
 
 
+/*.project1 {
+  } 
+  */
 
-
-
-.project1 {
-  position: relative;
-} 
-
-.caption1 {
-	font-size:		100%;
-	text-align: 		center;
-	color:			#fff;
+figcaption {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 85%;
+  background: rgba(238, 232, 232, 0.8);
+  -webkit-transition: .3s;
+  transition: .3s;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5% 0% auto auto;
+  padding-left: 10px;
+  padding-bottom: 5px;
 }
 
-.mask1 {
-  width:	100%;
-  height: 100%;
-  margin: 10%  auto;
-	position:	  absolute;	/* 絶対位置指定 */
-  top:			50%;
-	left:			50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
-
-	opacity:		0;	/* マスクを表示しない */
-	background-color:	rgba(0,0,0,0.4);	/* マスクは半透明 */
-	-webkit-transition:	all 0.2s ease;
-	transition:		all 0.2s ease;
-  border: 3px solid green;
+.flex-box p{
+  font-size: 20pt;
 }
 
-.mask1:hover {
-	opacity:		1;	/* マスクを表示する */
+.flex-box li:hover figcaption {
+  opacity: 1;
+  pointer-events: none;
+  cursor: pointer;
 }
