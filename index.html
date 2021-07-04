@@ -5,10 +5,45 @@
   <title>TENJIKUUKAN</title>
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
   <link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width:480px)">
+  <link rel="stylesheet" type="text/css" href="css/opening.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery読み込み-->
   <meta name="viewport" content="width=device-width,initial-scale=1.0"> <!-- responsive -->
 </head>
 <body>
+
+  <div class="shutter"> <!-- ここから -->
+    <div class="people">
+      <img class="person A moveL" src="images/person3.png">
+      <img class="person B moveL" src="images/person2.png">
+      <img class="person C moveL" src="images/person1.png">
+      <img class="person D moveL" src="images/person2.png">
+      <img class="person E moveR" src="images/person3.png">
+      <img class="person F moveR" src="images/person1.png">
+      <img class="person G moveR" src="images/person2.png">
+      <div class="barL"></div>
+      <div class="barR"> </div>
+      <div class=click-guideL-wrapper>
+        <p class=click-guideL>人が多い！<br>
+        画面をクリックしてみてください！</p>
+      </div>
+      <div class=click-guideR-wrapper>
+        <p class=click-guideR>まだ見えない...<br>
+        もう一回クリック！</p>
+      </div>
+    </div>
+
+    <div class="video-background"></div>
+    <!--
+    <div class="video-wrapper"> -->
+      <div class="video-window">
+        <video class="video-project" src="images/Extra_PV.mp4" autoplay muted playsinline></video>
+        <div class="arrow"></div>
+      </div>
+      <!--
+    </div> -->
+  </div> <!-- ここまで -->
+
+  <div class="main"> <!-- 追加 -->
   <header>
     <div class="container">
       <div class="header-left">
@@ -76,7 +111,11 @@
 
   </footer>
 
+</div> <!-- 追加 -->
+
+
   <!-- <script src="js/vis_audience.js"></script> -->
   <script src="js/carousel.js"></script>
+  <script src="js/opening.js"></script>
 </body>
 </html>
